@@ -10,15 +10,16 @@
   <body>
     <h1>Calculate This:</h1>
     <form id="calc-form">
-      <input type="number" />
-      <button id="addBtn">+</button>
-      <button id="subBtn">-</button>
-      <button id="multBtn">*</button>
-      <button id="divBtn">/</button>
-      <button id="percentBtn">%</button>
-      <input type="number" />
+      <input type="number" id="number1" />
+      <!--using <input> instead of <button> to target = for submit-->
+      <input type="button" data-op="add" class="opBtn" value="+" />
+      <input type="button" data-op="sub" class="opBtn" value="-" />
+      <input type="button" data-op="multBtn" class="opBtn" value="*" />
+      <input type="button" data-op="divBtn" class="opBtn" value="/" />
+      <input type="button" data-op="percentBtn" class="opBtn" value="%" />
+      <input type="number" id="number2" />
       <input type="submit" id="equalBtn" value="=" />
-      <button id="clearBtn">C</button>
+      <input type="button" id="clearBtn" value="C" />
     </form>
     <h2>
       <!--this span will be gen'd by jq-->

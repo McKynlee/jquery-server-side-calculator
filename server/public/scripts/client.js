@@ -22,4 +22,13 @@ function captureInput(evt) {
 
   // Keep form from refreshing:
   evt.preventDefault();
+
+  // Create object to hold inputs
+  // May NOT NEED btn inputs, TBD:
+  let inputEq = {
+    number1: Number($('#number1').val()),
+    number2: Number($('#number2').val()),
+  };
+
+  console.log('inputEq:', inputEq);
 }

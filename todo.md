@@ -6,7 +6,8 @@
 -----[x] 2 inputs boxes
 -----[x] + - \* / % buttons for math operations
 -----[x] C clear button
-[] Capture input in object
+[x] Capture input in object
+-----[x] Create click/submit event listener
 [] Send this object to server via POST
 
 # Server Side
