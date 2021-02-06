@@ -12,9 +12,9 @@
 
 # Server Side
 
-[] Require express
-[] declare app and port
-[] get app running (.listen)
+[x] Require express
+[x] declare app and port
+[x] get app running (.listen)
 [] get bundled object on inputs from client
 [] Appropriately compute numbers based off inputs
 [] Send back ok once calc complete

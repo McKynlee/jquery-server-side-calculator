@@ -5,6 +5,9 @@ $(document).ready(onReady);
 // Get set up for consistent testing:
 let verbose = true;
 
+// Declare global array to capture all inputs
+const inputNumbersArray = [];
+
 function onReady() {
   console.log('jQ here');
 
@@ -15,20 +18,49 @@ function onReady() {
 }
 
 function captureInput(evt) {
+  // Keep form from refreshing:
+  evt.preventDefault();
+
   // Test that function is running
   if (verbose) {
     console.log('in captureInput');
   }
 
-  // Keep form from refreshing:
-  evt.preventDefault();
-
-  // Create object to hold inputs
-  // May NOT NEED btn inputs, TBD:
-  let inputEq = {
+  // Create object to hold inputs:
+  let inputNumbers = {
     number1: Number($('#number1').val()),
     number2: Number($('#number2').val()),
   };
 
-  console.log('inputEq:', inputEq);
+  // Let's see how this shows on console!
+  console.log('inputNumbers:', inputNumbers);
+
+  // Post input data to server
+  $.ajax({
+    // Create api URL to find common
+    // communication ground with server
+    url: '/api/number_inputs',
+    method: 'POST',
+    // data becomes req.body with bodyParser in server.js
+    data: {
+      inputEq_to_add: inputNumbers,
+    },
+  })
+    .then(function (response) {
+      // Add new input numbers to input history
+      inputNumbersArray.push(response);
+
+      // test to see if we are receiving response:
+      if (verbose) {
+        console.log('Yep, yep - you bet! Response posted:', response);
+      }
+    })
+    .catch(function (error) {
+      if (verbose) {
+        console.log('*****ERROR: InputEq NOT posted');
+      }
+    });
+
+  // Test to see if we added response to input history:
+  console.log('Our input history is:', inputNumbersArray);
 }
