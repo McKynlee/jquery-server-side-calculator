@@ -26,4 +26,4 @@
 [] Require all inputs be filled before POST
 [] Make a DELETE request that links to HTML button for user to clear history.
 [] Allow users to click on historical equation and re-run it
-[] Deploy to Heroku
+[] Deploy to
