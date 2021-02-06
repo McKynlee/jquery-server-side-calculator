@@ -31,7 +31,7 @@ app.post('/api/number_inputs', (req, res) => {
   // req.body = data {} in AJAX on client.js
   let addedInputEq = req.body.inputEq_to_add;
 
-  console.log('1st input:', addedInputEq.number1);
-  console.log('2nd input:', addedInputEq.number2);
+  console.log('1st input:', addedInputEq.num1);
+  console.log('2nd input:', addedInputEq.num2);
   res.status(200).send(addedInputEq);
 });

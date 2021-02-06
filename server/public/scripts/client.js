@@ -3,7 +3,10 @@ console.log('JS here');
 $(document).ready(onReady);
 
 // Get set up for consistent testing:
-let verbose = true;
+const verbose = true;
+
+// Declaring global object to capture inputs from separate functions
+let globalInputs = {};
 
 function onReady() {
   console.log('jQ here');
@@ -30,8 +33,15 @@ function captureInput(evt) {
     number2: Number($('#number2').val()),
   };
 
+  // Add to globalInputs object so I can use:
+  globalInputs.num1 = inputNumbers.number1;
+  globalInputs.num2 = inputNumbers.number2;
+
+  // Use updated globalInputs as argument in function:
+  console.log('Calculated for you:', calculateForMe(globalInputs));
+
   // Let's see how this shows on console!
-  console.log('inputNumbers:', inputNumbers);
+  console.log('globalInputs in captureInput:', globalInputs);
 
   // Post input data to server
   $.ajax({
@@ -41,7 +51,7 @@ function captureInput(evt) {
     method: 'POST',
     // data becomes req.body with bodyParser in server.js
     data: {
-      inputEq_to_add: inputNumbers,
+      inputEq_to_add: globalInputs,
     },
   })
     .then(function (response) {
@@ -55,15 +65,46 @@ function captureInput(evt) {
         console.log('*****ERROR: InputEq NOT posted');
       }
     });
-  return inputNumbers;
 }
 
 function setOperator() {
+  // Test that we enter function on click:
   if (verbose) {
     console.log('in setOperator');
   }
 
+  // declare variable to rep the value set = data-op
+  // for each button clicked
   let operator = $(this).data('op');
   console.log(operator);
-  return operator;
+
+  // add data-op value to globalInputs object:
+  globalInputs.dataOp = operator;
+
+  // Make sure dataOp: operator added
+  console.log('globalNumbers is now:', globalInputs);
+}
+
+function calculateForMe(object) {
+  if (verbose) {
+    console.log('inCalculateForMe');
+    console.log('object is:', object);
+  }
+
+  // create variables to represent the globalInputs properties:
+  let number1 = object.num1;
+  let number2 = object.num2;
+  let dataOp = object.dataOp;
+
+  if (dataOp === '+') {
+    return number1 + number2;
+  } else if (dataOp === '-') {
+    return number1 - number2;
+  } else if (dataOp === '*') {
+    return number1 * number2;
+  } else if (dataOp === '/') {
+    return number1 / number2;
+  } else if (dataOp === '%') {
+    return (number1 + number2) / 100;
+  }
 }
