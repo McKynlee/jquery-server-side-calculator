@@ -12,6 +12,7 @@ function onReady() {
   // use 'submit' instead of 'click' to make input required
   // on submit, initiate function to capture input
   $(document).on('submit', '#calc-form', captureInput);
+  $(document).on('click', '.opBtn', setOperator);
 }
 
 function captureInput(evt) {
@@ -54,4 +55,15 @@ function captureInput(evt) {
         console.log('*****ERROR: InputEq NOT posted');
       }
     });
+  return inputNumbers;
+}
+
+function setOperator() {
+  if (verbose) {
+    console.log('in setOperator');
+  }
+
+  let operator = $(this).data('op');
+  console.log(operator);
+  return operator;
 }
