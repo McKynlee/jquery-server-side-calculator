@@ -3,9 +3,9 @@
 # Client Side
 
 [x] HTML:
------[] 2 inputs boxes
------[] + - \* / % buttons for math operations
------[] C clear button
+-----[x] 2 inputs boxes
+-----[x] + - \* / % buttons for math operations
+-----[x] C clear button
 [] Capture input in object
 [] Send this object to server via POST
 
