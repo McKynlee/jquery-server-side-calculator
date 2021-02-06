@@ -1,8 +1,8 @@
-[] Wiring: HTML, jQuery, JS, Server, Public, node, Express
+[x] Wiring: HTML, jQuery, JS, Server, Public, node, Express
 
 # Client Side
 
-[] HTML:
+[x] HTML:
 -----[] 2 inputs boxes
 -----[] + - \* / % buttons for math operations
 -----[] C clear button
@@ -24,6 +24,6 @@
 
 [] Style the interface to look like a calculator.
 [] Require all inputs be filled before POST
-[] Make a DELETE request that links to HTML button for user to clear history.
+[] Make a DELETE request that links to HTML button for user to clear history. (AC Button)
 [] Allow users to click on historical equation and re-run it
-[] Deploy to
+[] Deploy to Heroku
