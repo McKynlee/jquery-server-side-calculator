@@ -15,7 +15,7 @@
 [x] Require express
 [x] declare app and port
 [x] get app running (.listen)
-[] get bundled object on inputs from client
+[x] get bundled object of inputs from client
 [] Appropriately compute numbers based off inputs
 [] Send back ok once calc complete
 [] Keep history of all input equations []

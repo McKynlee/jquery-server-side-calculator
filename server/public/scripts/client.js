@@ -5,9 +5,6 @@ $(document).ready(onReady);
 // Get set up for consistent testing:
 let verbose = true;
 
-// Declare global array to capture all inputs
-const inputNumbersArray = [];
-
 function onReady() {
   console.log('jQ here');
 
@@ -47,9 +44,6 @@ function captureInput(evt) {
     },
   })
     .then(function (response) {
-      // Add new input numbers to input history
-      inputNumbersArray.push(response);
-
       // test to see if we are receiving response:
       if (verbose) {
         console.log('Yep, yep - you bet! Response posted:', response);
@@ -60,7 +54,4 @@ function captureInput(evt) {
         console.log('*****ERROR: InputEq NOT posted');
       }
     });
-
-  // Test to see if we added response to input history:
-  console.log('Our input history is:', inputNumbersArray);
 }

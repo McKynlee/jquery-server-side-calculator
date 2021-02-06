@@ -2,6 +2,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// Declare global array to capture all inputs
+const inputNumbersArray = require('./modules/input-numbers');
+
 // Start the app:
 const app = express();
 
@@ -30,5 +33,5 @@ app.post('/api/number_inputs', (req, res) => {
 
   console.log('1st input:', addedInputEq.number1);
   console.log('2nd input:', addedInputEq.number2);
-  res.status(200).send('TBD to send');
+  res.status(200).send(addedInputEq);
 });
