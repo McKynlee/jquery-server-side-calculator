@@ -9,16 +9,20 @@
   </head>
   <body>
     <h1>Calculate This:</h1>
+    <p>
+      NOTE: If you do not select a new operator, calculator will reuse the last
+      operation selection.
+    </p>
     <form id="calc-form">
       <!--Found that input type="number" only accept integers-->
-      <input type="text" id="number1" />
+      <input type="text" id="number1" required />
       <!--using <input> instead of <button> to target = for submit-->
       <input type="button" data-op="+" class="opBtn" value="+" />
       <input type="button" data-op="-" class="opBtn" value="-" />
       <input type="button" data-op="*" class="opBtn" value="*" />
       <input type="button" data-op="/" class="opBtn" value="/" />
       <input type="button" data-op="%" class="opBtn" value="%" />
-      <input type="text" id="number2" />
+      <input type="text" id="number2" required />
       <input type="submit" id="equalBtn" value="=" />
       <input type="button" id="clearBtn" value="C" />
     </form>

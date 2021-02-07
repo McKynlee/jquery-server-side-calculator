@@ -46,6 +46,8 @@ function calculateForMe(object) {
     return number1 / number2;
   } else if (dataOp === '%') {
     return (number1 + number2) / 100;
+  } else {
+    return 'ERROR!  No operator selected';
   }
 }
 
