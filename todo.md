@@ -16,7 +16,7 @@
 [x] declare app and port
 [x] get app running (.listen)
 [x] get bundled object of inputs from client
-[] Appropriately compute numbers based off inputs
+[x] Appropriately compute numbers based off inputs
 [] Send back ok once calc complete
 [] Keep history of all input equations []
 [] Render all historical calculations on the DOM (GET)

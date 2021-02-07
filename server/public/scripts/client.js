@@ -16,6 +16,7 @@ function onReady() {
   // on submit, initiate function to capture input
   $(document).on('submit', '#calc-form', captureInput);
   $(document).on('click', '.opBtn', setOperator);
+  $(document).on('click', '#clearBtn', clearFunction);
 }
 
 function captureInput(evt) {
@@ -33,12 +34,9 @@ function captureInput(evt) {
     number2: Number($('#number2').val()),
   };
 
-  // Add to globalInputs object so I can use:
+  // Add to globalInputs object so I can use outside this function:
   globalInputs.num1 = inputNumbers.number1;
   globalInputs.num2 = inputNumbers.number2;
-
-  // Use updated globalInputs as argument in function:
-  console.log('Calculated for you:', calculateForMe(globalInputs));
 
   // Let's see how this shows on console!
   console.log('globalInputs in captureInput:', globalInputs);
@@ -49,7 +47,7 @@ function captureInput(evt) {
     // communication ground with server
     url: '/api/number_inputs',
     method: 'POST',
-    // data becomes req.body with bodyParser in server.js
+    // data becomes req.body with body-parser in server.js
     data: {
       inputEq_to_add: globalInputs,
     },
@@ -57,7 +55,7 @@ function captureInput(evt) {
     .then(function (response) {
       // test to see if we are receiving response:
       if (verbose) {
-        console.log('Yep, yep - you bet! Response posted:', response);
+        console.log('The response is:', response);
       }
     })
     .catch(function (error) {
@@ -82,29 +80,12 @@ function setOperator() {
   globalInputs.dataOp = operator;
 
   // Make sure dataOp: operator added
-  console.log('globalNumbers is now:', globalInputs);
+  // console.log('globalNumbers is now:', globalInputs);
 }
 
-function calculateForMe(object) {
+function clearFunction() {
   if (verbose) {
-    console.log('inCalculateForMe');
-    console.log('object is:', object);
+    console.log('in clearFunction');
   }
-
-  // create variables to represent the globalInputs properties:
-  let number1 = object.num1;
-  let number2 = object.num2;
-  let dataOp = object.dataOp;
-
-  if (dataOp === '+') {
-    return number1 + number2;
-  } else if (dataOp === '-') {
-    return number1 - number2;
-  } else if (dataOp === '*') {
-    return number1 * number2;
-  } else if (dataOp === '/') {
-    return number1 / number2;
-  } else if (dataOp === '%') {
-    return (number1 + number2) / 100;
-  }
+  //reset
 }
