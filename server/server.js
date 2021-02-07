@@ -8,9 +8,6 @@ let verbose = true;
 // Declare global array to capture all inputs
 const historicalEqArray = require('./modules/input-numbers');
 
-// Bring in calculations function:
-// let calculateForMe = require('./modules/calculations');
-
 // Start the app:
 const app = express();
 
@@ -81,15 +78,10 @@ app.post('/api/number_inputs', (req, res) => {
   res.status(200).send(calculateForMe(addedInputEq).toString());
 });
 
-// Tell server what to send when 'api/inputEq_to_add' is requested
-// app.get('/api/number_inputs', (req, res) => {
-//   // Checking:
-//   console.log('GET request for calculation');
+// Tell server what to send when '/api/historical_equations' is requested
+app.get('/api/historical_equations', (req, res) => {
+  // Checking:
+  console.log('GET request for historical equations', historicalEqArray);
 
-//   // use input object as argument in calc function:
-//   let calculation = calculateForMe(addedInputEq);
-
-//   console.log('Calculation is:', calculation);
-
-//   res.send(calculation);
-// });
+  res.send(historicalEqArray);
+});

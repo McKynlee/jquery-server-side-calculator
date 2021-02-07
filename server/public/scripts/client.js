@@ -59,13 +59,21 @@ function captureInput(evt) {
       }
       globalInputs.answer = Number(response);
       console.log('globalInputs with answer:', globalInputs);
+
+      // Declare variable to rep where we want to display answer on DOM:
+      let answerOnDOM = $('.numDisplay');
+      answerOnDOM.empty();
+      // Add answer to DOM:
+      answerOnDOM.append(response);
+
+      // Call function to display history on DOM:
+      displayHistoricalEq();
     })
     .catch(function (error) {
       if (verbose) {
         console.log('*****ERROR: InputEq NOT posted');
       }
     });
-  // calculateThis();
 }
 
 function setOperator() {
@@ -86,26 +94,6 @@ function setOperator() {
   // console.log('globalNumbers is now:', globalInputs);
 }
 
-// function calculateThis() {
-//   $.ajax({
-//     // Create api URL to find common
-//     // communication ground with server
-//     url: '/api/number_inputs',
-//     method: 'GET',
-//   })
-//     .then(function (response) {
-//       // test to see if we are receiving response:
-//       if (verbose) {
-//         console.log('The answer is:', response);
-//       }
-//     })
-//     .catch(function (error) {
-//       if (verbose) {
-//         console.log('*****ERROR: InputEq NOT gotten');
-//       }
-//     });
-// }
-
 function clearFunction() {
   if (verbose) {
     console.log('in clearFunction');
@@ -118,4 +106,38 @@ function clearFunction() {
 
   inputNumbers.number1 = $('#number1').val('');
   inputNumbers.number2 = $('#number2').val('');
+}
+
+function displayHistoricalEq() {
+  $.ajax({
+    // Create api URL to find common
+    // communication ground with server
+    url: '/api/historical_equations',
+    method: 'GET',
+  })
+    .then(function (arrayOfHistoricalEq) {
+      // test to see if we are receiving response:
+      if (verbose) {
+        console.log('GET response:', arrayOfHistoricalEq);
+      }
+      // Declare variables targeting where we want to append in our HTML:
+      let equationsOnDOM = $('.eqList');
+
+      // Clear already-added items:
+      equationsOnDOM.empty();
+
+      for (let equation of arrayOfHistoricalEq) {
+        equationsOnDOM.append(
+          `<li>
+            ${equation.num1} ${equation.dataOp} ${equation.num2} =
+            ${equation.answer}
+          </li>`
+        );
+      }
+    })
+    .catch(function (error) {
+      if (verbose) {
+        console.log('*****ERROR: historical equations NOT gotten');
+      }
+    });
 }
