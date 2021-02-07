@@ -35,8 +35,8 @@ function calculateForMe(object) {
   }
 
   // create variables to represent the globalInputs properties:
-  let number1 = object.num1;
-  let number2 = object.num2;
+  let number1 = Number(object.num1);
+  let number2 = Number(object.num2);
   let dataOp = object.dataOp;
 
   if (dataOp === '+') {
@@ -70,7 +70,7 @@ app.post('/api/number_inputs', (req, res) => {
   console.log('Calculation is:', calculation);
 
   // This line took some time to figure out...
-  // Sending a number defaults to status code, so conver to string:
+  // Sending a number defaults to status code, so convert to string:
   res.status(200).send(calculateForMe(addedInputEq).toString());
 });
 

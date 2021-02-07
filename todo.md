@@ -5,10 +5,10 @@
 [x] HTML:
 -----[x] 2 inputs boxes
 -----[x] + - \* / % buttons for math operations
------[x] C clear button
+-----[] C clear button that clears user inputs
 [x] Capture input in object
 -----[x] Create click/submit event listener
-[] Send this object to server via POST
+[x] Send this object to server via POST
 
 # Server Side
 
@@ -17,8 +17,8 @@
 [x] get app running (.listen)
 [x] get bundled object of inputs from client
 [x] Appropriately compute numbers based off inputs
-[] Send back ok once calc complete
-[] Keep history of all input equations []
+[x] Send back ok once calc complete
+[x] Keep history of all input equations []
 [] Render all historical calculations on the DOM (GET)
 
 ## STRETCH

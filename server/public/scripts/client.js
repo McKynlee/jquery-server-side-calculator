@@ -109,4 +109,11 @@ function clearFunction() {
     console.log('in clearFunction');
   }
   //reset
+  let inputNumbers = {
+    number1: Number($('#number1').val()),
+    number2: Number($('#number2').val()),
+  };
+
+  inputNumbers.number1 = $('#number1').val('');
+  inputNumbers.number2 = $('#number2').val('');
 }
