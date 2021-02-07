@@ -19,7 +19,7 @@
 [x] Appropriately compute numbers based off inputs
 [x] Send back ok once calc complete
 [x] Keep history of all input equations []
-[] Render all historical calculations on the DOM (GET)
+[x] Render all historical calculations on the DOM (GET)
 
 ## STRETCH
 

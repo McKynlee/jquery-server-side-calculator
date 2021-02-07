@@ -10,21 +10,24 @@
   <body>
     <h1>Calculate This:</h1>
     <form id="calc-form">
-      <input type="number" id="number1" />
+      <!--Found that input type="number" only accept integers-->
+      <input type="text" id="number1" />
       <!--using <input> instead of <button> to target = for submit-->
       <input type="button" data-op="+" class="opBtn" value="+" />
       <input type="button" data-op="-" class="opBtn" value="-" />
       <input type="button" data-op="*" class="opBtn" value="*" />
       <input type="button" data-op="/" class="opBtn" value="/" />
       <input type="button" data-op="%" class="opBtn" value="%" />
-      <input type="number" id="number2" />
+      <input type="text" id="number2" />
       <input type="submit" id="equalBtn" value="=" />
       <input type="button" id="clearBtn" value="C" />
     </form>
     <h2>
+      Answer:
       <!--this span value will be gen'd by jq-->
       <span class="numDisplay"></span>
     </h2>
+    <h4>Previous equations:</h4>
     <ul class="eqList">
       <!--these li will be gen'd by jq-->
       <!-- <li></li> -->
