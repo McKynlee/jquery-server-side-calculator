@@ -18,6 +18,7 @@ function onReady() {
   $(document).on('click', '.opBtn', setOperator);
   $(document).on('click', '#clearBtn', clearFunction);
   $(document).on('click', '.li-tag', rerunCalculation);
+  $(document).on('click', '.numBtn', numberFromCalculator);
 }
 
 function captureInput(evt) {
@@ -78,15 +79,14 @@ function captureInput(evt) {
 }
 
 function setOperator() {
-  // Test that we enter function on click:
-  if (verbose) {
-    console.log('in setOperator');
-  }
-
   // declare variable to rep the value set = data-op
   // for each button clicked
   let operator = $(this).data('op');
-  console.log(operator);
+
+  // Test that we enter function on click:
+  if (verbose) {
+    console.log('in setOperator:', operator);
+  }
 
   // add data-op value to globalInputs object:
   globalInputs.dataOp = operator;
@@ -156,8 +156,8 @@ function rerunCalculation() {
   );
 }
 
-// `<li data-answer='${equation.answer}' data-num1='${equation.num1}'
-//           data-dataOp='${equation.dataOp}' data-num2-'${equation.num2}' class='li-tag'>
-//             ${equation.num1} ${equation.dataOp} ${equation.num2} =
-//             ${equation.answer}
-//           </li>`;
+function numberFromCalculator() {
+  if (verbose) {
+    console.log('in numberFromCalculator');
+  }
+}

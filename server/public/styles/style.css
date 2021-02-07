@@ -1,0 +1,120 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/*This setup resets all 
+element margin and padding to 0 to
+override browser styling.  
+Box-sizing: border-box makes sure
+border of element doesn't increase
+its width */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background-color: rgb(109, 139, 164);
+  margin: 5% 0% 0% 10%;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.note {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.calculator {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 400px;
+  background-color: lightgray;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+
+#calc-form {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 400px;
+  brackground-color: lightgray;
+}
+
+.calculation-display {
+  width: 100%;
+  font-size: 30px;
+  height: 80px;
+  border: none;
+  background-color: #252525;
+  color: #fff;
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 10px;
+}
+
+#functional-button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  padding: 5px;
+}
+
+.button {
+  height: 60px;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #c4c4c4;
+  background-color: transparent;
+  font-size: 2rem;
+  color: #333;
+}
+
+.button:hover {
+  background-color: #eaeaea;
+}
+
+.opBtn {
+  color: #337cac;
+  background-color: darkgray;
+}
+
+.numBtn {
+  background-color: rgb(218, 214, 214);
+}
+
+#clearBtn {
+  background-color: #f0595f;
+  border-color: #b0353a;
+  color: #fff;
+}
+
+#clearBtn:hover {
+  background-color: #f17377;
+}
+
+#equalBtn {
+  background-color: #2e86c0;
+  border-color: #337cac;
+  color: #fff;
+}
+
+#equalBtn:hover {
+  background-color: #4e9ed4;
+}
+
+#zeroBtn {
+  grid-column: span 2;
+}
+
+.history {
+  font-size: 15px;
+  margin-left: 20px;
+}

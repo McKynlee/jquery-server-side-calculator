@@ -5,36 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/client.js"></script>
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>Document</title>
   </head>
   <body>
     <h1>Calculate This:</h1>
-    <p>
-      NOTE: If you do not select a new operator, calculator will reuse the last
-      operation selection.
+    <p class="note">
+      NOTE: If you do not select a new operator, <br />
+      calculator will reuse the last operator selected.
     </p>
-    <form id="calc-form">
-      <!--Found that input type="number" only accept integers-->
-      <input type="text" id="number1" required />
-      <!--using <input> instead of <button> to target = for submit-->
-      <input type="button" data-op="+" class="opBtn" value="+" />
-      <input type="button" data-op="-" class="opBtn" value="-" />
-      <input type="button" data-op="*" class="opBtn" value="*" />
-      <input type="button" data-op="/" class="opBtn" value="/" />
-      <input type="button" data-op="%" class="opBtn" value="%" />
-      <input type="text" id="number2" required />
-      <input type="submit" id="equalBtn" value="=" />
-      <input type="button" id="clearBtn" value="C" />
-    </form>
-    <h2>
-      Answer:
-      <!--this span value will be gen'd by jq-->
-      <span class="numDisplay"></span>
-    </h2>
-    <h4>Previous equations:</h4>
-    <ul class="eqList">
-      <!--these li will be gen'd by jq-->
-      <!-- <li></li> -->
-    </ul>
+    <div class="calculator">
+      <h2 class="calculation-display">
+        Answer:
+        <!--this span value will be gen'd by jq-->
+        <span class="numDisplay"></span>
+      </h2>
+      <form id="calc-form">
+        <!--Found that input type="number" only accept integers-->
+        <div id="input-container">
+          <input type="text" id="number1" placeholder="First Number" required />
+          <input
+            type="text"
+            id="number2"
+            placeholder="Second Number"
+            required
+          />
+        </div>
+        <!--using <input> instead of <button> to target = for submit-->
+        <div id="functional-button-container">
+          <input type="button" id="clearBtn" class="button" value="C" />
+          <input type="button" class="button" />
+          <input type="button" data-op="%" class="opBtn button" value="%" />
+          <input type="button" data-op="/" class="opBtn button" value="/" />
+          <input type="button" value="7" class="numBtn button" />
+          <input type="button" value="8" class="numBtn button" />
+          <input type="button" value="9" class="numBtn button" />
+          <input type="button" data-op="*" class="opBtn button" value="*" />
+          <input type="button" value="4" class="numBtn button" />
+          <input type="button" value="5" class="numBtn button" />
+          <input type="button" value="6" class="numBtn button" />
+          <input type="button" data-op="-" class="opBtn button" value="-" />
+          <input type="button" value="1" class="numBtn button" />
+          <input type="button" value="2" class="numBtn button" />
+          <input type="button" value="3" class="numBtn button" />
+          <input type="button" data-op="+" class="opBtn button" value="+" />
+          <input type="button" value="0" id="zeroBtn" class="numBtn button" />
+          <input type="button" value="." class="decimal button" />
+          <input type="submit" id="equalBtn" value="=" class="button" />
+        </div>
+      </form>
+    </div>
+    <div class="history">
+      <h4>Previous equations:</h4>
+      <ul class="eqList">
+        <!--these li will be gen'd by jq-->
+        <!-- <li></li> -->
+      </ul>
+    </div>
   </body>
 </html>

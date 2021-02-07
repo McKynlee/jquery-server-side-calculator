@@ -23,8 +23,9 @@
 
 ## STRETCH
 
-[] Style the interface to look like a calculator.
+[x] Style the interface to look like a calculator.
+[] Make calculator number buttons functional
 [x] Require all inputs be filled before POST
 [] Make a DELETE request that links to HTML button for user to clear history. (AC Button)
-[] Allow users to click on historical equation and re-run it
+[x] Allow users to click on historical equation and re-run it
 [] Deploy to Heroku
