@@ -17,6 +17,7 @@ function onReady() {
   $(document).on('submit', '#calc-form', captureInput);
   $(document).on('click', '.opBtn', setOperator);
   $(document).on('click', '#clearBtn', clearFunction);
+  $(document).on('click', '.li-tag', rerunCalculation);
 }
 
 function captureInput(evt) {
@@ -128,7 +129,8 @@ function displayHistoricalEq() {
 
       for (let equation of arrayOfHistoricalEq) {
         equationsOnDOM.append(
-          `<li>
+          `<li data-answer='${equation.answer}' data-num1='${equation.num1}'
+          data-dataop='${equation.dataOp}' data-num2='${equation.num2}' class='li-tag'>
             ${equation.num1} ${equation.dataOp} ${equation.num2} =
             ${equation.answer}
           </li>`
@@ -141,3 +143,21 @@ function displayHistoricalEq() {
       }
     });
 }
+
+function rerunCalculation() {
+  let oldAnswer = $(this).data('answer');
+  // re-Declare variable to rep where we want to display answer on DOM:
+  let oldAnswerOnDOM = $('.numDisplay');
+  oldAnswerOnDOM.empty();
+  // Add answer to DOM:
+  oldAnswerOnDOM.append(
+    `<span>${$(this).data('num1')} ${$(this).data('dataop')} 
+    ${$(this).data('num2')} = ${oldAnswer}</span>`
+  );
+}
+
+// `<li data-answer='${equation.answer}' data-num1='${equation.num1}'
+//           data-dataOp='${equation.dataOp}' data-num2-'${equation.num2}' class='li-tag'>
+//             ${equation.num1} ${equation.dataOp} ${equation.num2} =
+//             ${equation.answer}
+//           </li>`;
