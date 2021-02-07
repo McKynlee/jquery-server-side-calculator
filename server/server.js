@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 let verbose = true;
 
 // Declare global array to capture all inputs
-const inputNumbersArray = require('./modules/input-numbers');
+const historicalEqArray = require('./modules/input-numbers');
 
 // Bring in calculations function:
 // let calculateForMe = require('./modules/calculations');
@@ -55,19 +55,26 @@ function calculateForMe(object) {
 app.post('/api/number_inputs', (req, res) => {
   // req.body = data {} in AJAX on client.js
   let addedInputEq = req.body.inputEq_to_add;
-
-  inputNumbersArray.push(addedInputEq);
-  console.log('inputNumbersArray:', inputNumbersArray);
+  console.log('req.body.inputEq_to_add:', addedInputEq);
 
   // Checking:
   // console.log('1st input in server:', globalInputs.num1);
   // console.log('2nd input in server:', globalInputs.num2);
-  // console.log('req.body.inputEq_to_add:', addedInputEq);
 
   // use input object as argument in calc function:
   let calculation = calculateForMe(addedInputEq);
 
-  console.log('Calculation is:', calculation);
+  // Add answer property to historical equations
+  addedInputEq.answer = calculation;
+
+  // Checking calculation:
+  // console.log('Calculation is:', calculation);
+
+  // Save properties of globalInputs to our historical equations:
+  historicalEqArray.push(addedInputEq);
+
+  // Checking what our historical equations array holds:
+  console.log('historicalEqArray:', historicalEqArray);
 
   // This line took some time to figure out...
   // Sending a number defaults to status code, so convert to string:
