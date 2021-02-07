@@ -57,23 +57,32 @@ app.post('/api/number_inputs', (req, res) => {
   let addedInputEq = req.body.inputEq_to_add;
 
   inputNumbersArray.push(addedInputEq);
+  console.log('inputNumbersArray:', inputNumbersArray);
 
+  // Checking:
   // console.log('1st input in server:', globalInputs.num1);
   // console.log('2nd input in server:', globalInputs.num2);
-  console.log('req.body.inputEq_to_add:', addedInputEq);
+  // console.log('req.body.inputEq_to_add:', addedInputEq);
 
   // use input object as argument in calc function:
   let calculation = calculateForMe(addedInputEq);
 
   console.log('Calculation is:', calculation);
 
-  res.sendStatus(200);
+  // This line took some time to figure out...
+  // Sending a number defaults to status code, so conver to string:
+  res.status(200).send(calculateForMe(addedInputEq).toString());
 });
 
-// Tell server what to send when 'api/inputEq_to_add' is posted
+// Tell server what to send when 'api/inputEq_to_add' is requested
 // app.get('/api/number_inputs', (req, res) => {
-//   console.log('1st input in server:', globalInputs.num1);
-//   console.log('2nd input in server:', globalInputs.num2);
+//   // Checking:
+//   console.log('GET request for calculation');
+
+//   // use input object as argument in calc function:
+//   let calculation = calculateForMe(addedInputEq);
+
+//   console.log('Calculation is:', calculation);
 
 //   res.send(calculation);
 // });

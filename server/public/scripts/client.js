@@ -63,6 +63,7 @@ function captureInput(evt) {
         console.log('*****ERROR: InputEq NOT posted');
       }
     });
+  // calculateThis();
 }
 
 function setOperator() {
@@ -82,6 +83,26 @@ function setOperator() {
   // Make sure dataOp: operator added
   // console.log('globalNumbers is now:', globalInputs);
 }
+
+// function calculateThis() {
+//   $.ajax({
+//     // Create api URL to find common
+//     // communication ground with server
+//     url: '/api/number_inputs',
+//     method: 'GET',
+//   })
+//     .then(function (response) {
+//       // test to see if we are receiving response:
+//       if (verbose) {
+//         console.log('The answer is:', response);
+//       }
+//     })
+//     .catch(function (error) {
+//       if (verbose) {
+//         console.log('*****ERROR: InputEq NOT gotten');
+//       }
+//     });
+// }
 
 function clearFunction() {
   if (verbose) {
