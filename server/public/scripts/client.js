@@ -57,6 +57,8 @@ function captureInput(evt) {
       if (verbose) {
         console.log('The response is:', response);
       }
+      globalInputs.answer = Number(response);
+      console.log('globalInputs with answer:', globalInputs);
     })
     .catch(function (error) {
       if (verbose) {

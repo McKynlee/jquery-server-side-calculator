@@ -5,7 +5,7 @@
 [x] HTML:
 -----[x] 2 inputs boxes
 -----[x] + - \* / % buttons for math operations
------[] C clear button that clears user inputs
+-----[x] C clear button that clears user inputs
 [x] Capture input in object
 -----[x] Create click/submit event listener
 [x] Send this object to server via POST
