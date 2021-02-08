@@ -1,4 +1,5 @@
 [x] Wiring: HTML, jQuery, JS, Server, Public, node, Express
+[] Update README
 
 # Client Side
 
