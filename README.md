@@ -32,7 +32,7 @@ Previously entered calculations, shown on the DOM in an unordered list below the
 1. Enter any number in one of the input boxes. _NOTE: steps 1-3 can be done in any order_
 1. Decide which operator you want to use [addition +, subtraction -, multiplication *, division /, or percent %] and click on that specific button on the calculator face.
    1. NOTE: the percent % button currently adds the two input numbers together and divides them by 100, to find the percentage of their sum. In the next upgrade, when the input boxes are removed and the number buttons have functionality, the percent button will also upgrade to giving you the percent-value of the number you select on the buttons (so selected number / 100).
-1. Enter any number in the second input box _NOTE: both input boxes must be filled out before moving on to the next step, or you will receive an alert reminding you to do so._
+1. Enter any number in the second input box. _NOTE: both input boxes must be filled out before moving on to the next step, or you will receive an alert reminding you to do so._
 1. Click on the blue equal sign button on the calculator face (=).
 1. The answer to your request will be displayed in the "Answer" window with a black background, directly above the calculator face. The entire equation will also appear in a list below "Previous equations" underneath the calculator.
 1. You may click on any of the previous equations listed below the calculator and have them display in the "Answer" window directly above the calculator.
