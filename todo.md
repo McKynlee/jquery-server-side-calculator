@@ -1,5 +1,5 @@
 [x] Wiring: HTML, jQuery, JS, Server, Public, node, Express
-[] Update README
+[x] Update README
 
 # Client Side
 
