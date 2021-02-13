@@ -51,4 +51,4 @@ Previously entered calculations, shown on the DOM in an unordered list below the
 
 # Acknowledgement
 
-Thanks to [Prime Digital Academy] (https://primeacademy.io/) who equipped and helped me to make this application a reality.
+Thanks to [Prime Digital Academy](https://primeacademy.io/) who equipped and helped me to make this application a reality.
